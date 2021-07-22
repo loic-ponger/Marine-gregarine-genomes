@@ -4,14 +4,19 @@ The contigs of the “apicomplexa” cluster were splitted into genomes A
 and B by using the difference of coverage observed for each of the 4 
 gDNA libraries.
 
-- the reads of each individual libraries were mapped against the “
+
+
+
+## median coverage for each individual libraries
+
+1. the reads of each individual libraries were mapped against the “
 apicomplexa” contigs  by using `Bowtie2`.
 
-- the bam files were sorted with `Samtools`
+2. the bam files were sorted with `Samtools`
 
-- the bedgraph files were generated with the `Bedtools` (tool: `genomeCoverageBed`)
+3. the bedgraph files were generated with the `Bedtools` (tool: `genomeCoverageBed`)
 
-- the median coverages were computed with the following R script 
+4. the median coverages were computed with the following R script 
 (have to be applied for each individual libraries):
 
 ```
@@ -31,4 +36,5 @@ colnames(medians) = c("scaffolds", "median_coverage")
 write.table(medians,"library_1.cov", row.names=F, sep="\t", quote=F)
 ```
 
+5. the median coverages were merged in a tabulated file 
 
